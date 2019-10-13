@@ -3,22 +3,18 @@ package com.master.iii.tp.apitranslations.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Collection;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Validated
 
-public class Applications {
+public class Application {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,5 +25,10 @@ public class Applications {
 
     @NotBlank
     private String description;
+/*
+* En supposant ici qu'une application peut avoir plusieurs traductions
+* */
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "application")
+    private Collection<Translations> translationsList;
 
 }
