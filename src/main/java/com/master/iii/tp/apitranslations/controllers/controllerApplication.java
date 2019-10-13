@@ -1,10 +1,9 @@
 package com.master.iii.tp.apitranslations.controllers;
 
 
-import com.master.iii.tp.apitranslations.entities.Applications;
-import com.master.iii.tp.apitranslations.services.applicationServices.serviceApp.ServiceApp;
+import com.master.iii.tp.apitranslations.entities.Application;
+import com.master.iii.tp.apitranslations.services.application.services.ServiceApp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,12 +15,12 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/applications")
-public class controllerApplication
+public class ControllerApplication
 {
     @Autowired
     ServiceApp appService;
     @PostMapping
-    public ResponseEntity createApplication(@RequestBody @Valid Applications application){
+    public ResponseEntity createApplication(@RequestBody @Valid Application application){
 
         //!TODO Implement when user also exists print message error
 
@@ -31,7 +30,7 @@ public class controllerApplication
         }
                */
 
-       Applications headers = appService.createApplication(application);
+       Application headers = appService.createApplication(application);
 
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
