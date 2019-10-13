@@ -6,5 +6,9 @@ import java.util.Optional;
 
 public interface ServiceEntry
 {
-   public Optional<Entry> getEntry(Integer id);
+    Optional<Entry> getEntry(Integer id);
+
+    void deleteEntry(Integer id);
+
+
 }

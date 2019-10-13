@@ -20,4 +20,7 @@ public class ServiceEntryImpl implements ServiceEntry {
     public Optional<Entry> getEntry(Integer id) {
         return entryRepository.findById(id);
     }
+
+    @Override
+    public void deleteEntry(Integer id){ entryRepository.deleteById(id);}
 }

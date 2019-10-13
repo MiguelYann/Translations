@@ -23,7 +23,7 @@ public class Entry {
     private  String value;
 
     @ManyToOne
-    @JoinColumn(name = "translation_id")
+    @JoinColumn(name = "translationId")
     private  Translations translation;
 
 
