@@ -35,15 +35,14 @@ public class ControllerEntry {
     }
 
     /**
-     *
+     * This method delete an entry spceify by Id of app an translation
      */
 
     @DeleteMapping(path = "/{id}")
-
     public ResponseEntity deleteEntry(@PathVariable Integer id){
 
         serviceEntry.deleteEntry(id);
-        return ResponseEntity.status(200).body("Entry " + id + " est bien supprimeé");
+        return ResponseEntity.status(202).body("entry supprimeé");
 
     }
 }

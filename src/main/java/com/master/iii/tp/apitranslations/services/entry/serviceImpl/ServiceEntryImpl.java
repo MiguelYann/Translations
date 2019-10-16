@@ -16,11 +16,19 @@ public class ServiceEntryImpl implements ServiceEntry {
     EntryRepository entryRepository;
 
 
+
+
     @Override
     public Optional<Entry> getEntry(Integer id) {
         return entryRepository.findById(id);
     }
 
     @Override
-    public void deleteEntry(Integer id){ entryRepository.deleteById(id);}
+    public void deleteEntry(Integer id) {
+       if(entryRepository.findById(id).isPresent()) {
+            entryRepository.deleteById(id);
+        }
+       return;
+
+    }
 }

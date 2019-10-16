@@ -13,13 +13,31 @@ public class ServiceAppImpl implements ServiceApp {
 
     @Autowired
     ApplicationRepository applicationRepository;
+
+
+    /**
+     *
+     * @param currentApplication the application that we pass at body
+     * @return the application which is save by CrudRepo
+     */
     @Override
     public Application createApplication(Application currentApplication){
-        currentApplication.setId(null);
-        currentApplication = applicationRepository.save(currentApplication);
-        return currentApplication;
+        if(applicationRepository.findAll().equals(currentApplication)){
+            currentApplication.setId(null);
+            return currentApplication;
 
+        }
+        else {
+            currentApplication = applicationRepository.save(currentApplication);
+            return currentApplication;
+        }
     }
+
+    /**
+     *
+     * @param id take the current id of application
+     * @return
+     */
 
     @Override
     public Optional<Application> findApplicationById(Integer id) {
