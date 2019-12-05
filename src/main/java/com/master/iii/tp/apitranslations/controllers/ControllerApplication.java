@@ -10,25 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@Controller
+@RestController
 @RequestMapping("/applications")
 public class ControllerApplication
 {
     @Autowired
     ServiceApp appService;
+
     @PostMapping
     public ResponseEntity createApplication(@RequestBody @Valid Application application){
-
-        //!TODO Implement when user also exists print message error
-
-        /*
-               if(appService.findApplicationById(application.getId()).isPresent()){
-      return ResponseEntity.status(400).body("Already exist");
-        }
-               */
 
        Application headers = appService.createApplication(application);
 

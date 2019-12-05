@@ -10,5 +10,6 @@ public interface ServiceEntry
 
     void deleteEntry(Integer id);
 
+    Entry updateEntry(Entry id);
 
 }

@@ -31,4 +31,9 @@ public class ServiceEntryImpl implements ServiceEntry {
        return;
 
     }
+
+    @Override
+    public Entry updateEntry(Entry entry) {
+        return entryRepository.save(entry);
+    }
 }

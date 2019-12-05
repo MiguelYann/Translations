@@ -18,11 +18,11 @@ import javax.validation.Valid;
 public class ControllerTranslations {
 
     @Autowired
-    ServiceTranslation serviceTranslation;
+    private ServiceTranslation serviceTranslation;
 
 
     @PostMapping(path = "{id}/translations")
-   public  ResponseEntity createTranslation( @RequestBody @Valid Translations translations){
+    public ResponseEntity createTranslation(@RequestBody @Valid Translations translations) {
 
         return new ResponseEntity<>(serviceTranslation.createTranslation(translations), HttpStatus.CREATED);
 
